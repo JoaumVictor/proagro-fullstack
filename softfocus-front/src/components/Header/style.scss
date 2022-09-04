@@ -1,0 +1,60 @@
+@mixin fastDisplay($x, $y, $z) {
+  display: flex;
+  align-items: center;
+  justify-content: $x;
+  flex-flow: $y $z;
+}
+
+header {
+  @include fastDisplay(space-evenly, row, nowrap);
+  background: rgb(48, 217, 54);
+  background: linear-gradient(
+    0deg,
+    rgba(48, 217, 54, 0.7256652661064426) 32%,
+    rgba(26, 143, 13, 0.9077380952380952) 79%
+  );
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+
+  nav {
+    @include fastDisplay(space-evenly, row, nowrap);
+    width: 25%;
+
+    a {
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        &::before {
+          display: flex;
+          left: 0;
+          width: 100%;
+        }
+      }
+
+      &:before {
+        content: "";
+        transition: 0.2s;
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        background-color: white;
+        height: 1px;
+        width: 0%;
+      }
+    }
+  }
+
+  .see-we-plans {
+    border: 1px solid black;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 12px;
+    color: black;
+    background-color: rgb(235, 235, 235);
+  }
+}

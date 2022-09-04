@@ -1,0 +1,3 @@
+# dependências utilizadas
+
+- sass

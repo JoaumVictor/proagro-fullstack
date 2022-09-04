@@ -1,0 +1,36 @@
+@mixin fastDisplay($a, $x, $y, $z) {
+  display: flex;
+  align-items: $a;
+  justify-content: $x;
+  flex-flow: $y $z;
+}
+
+.home-main-container {
+  @include fastDisplay(center, space-evenly, row, nowrap);
+  background: url("../../images/banner-principal.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+
+  .see-we-plans {
+    border: 1px solid black;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    background-color: rgb(235, 235, 235);
+  }
+
+  .home-center-box {
+    @include fastDisplay(flex-start, space-evenly, column, nowrap);
+    height: 50%;
+    width: 75%;
+
+    .title {
+      font-size: 36px;
+    }
+  }
+}

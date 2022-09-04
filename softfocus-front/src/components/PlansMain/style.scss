@@ -1,0 +1,42 @@
+@mixin fastDisplay($a, $x, $y, $z) {
+  display: flex;
+  align-items: $a;
+  justify-content: $x;
+  flex-flow: $y $z;
+}
+
+.plans-main-container {
+  @include fastDisplay(center, center, column, nowrap);
+  background: rgb(243, 243, 243);
+  background: linear-gradient(
+    0deg,
+    rgba(243, 243, 243, 1) 44%,
+    rgba(228, 228, 228, 1) 52%,
+    rgba(243, 243, 243, 1) 59%
+  );
+  height: 100vh;
+  width: 100vw;
+
+  h1 {
+    color: #222;
+  }
+
+  .plans-box {
+    @include fastDisplay(center, space-evenly, row, nowrap);
+    height: 50%;
+    width: 80%;
+    button {
+      cursor: pointer;
+      height: 90%;
+      border: 1px dashed rgb(169, 169, 169);
+      background-color: transparent;
+      transition: 0.4s;
+      img {
+        height: 100%;
+      }
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

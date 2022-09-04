@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  backend:
+    container_name: meu_querido-backend
+    build: ./pasta_do_backend
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    volumes:
+      - ./pasta_do_backend:/api
+    restart: always
+
+  db:
+    image: mongo:6.0
+    container_name: db
+    ports:
+      - 27017:27017
+    restart: always

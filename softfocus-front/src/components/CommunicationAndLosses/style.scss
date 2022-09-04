@@ -1,0 +1,32 @@
+@mixin fastDisplay($a, $x, $y, $z) {
+  display: flex;
+  align-items: $a;
+  justify-content: $x;
+  flex-flow: $y $z;
+}
+
+.plan-1-container {
+  @include fastDisplay(center, space-evenly, column, nowrap);
+  background-color: #888;
+  height: 100vh;
+  width: 100vw;
+
+  button,
+  p,
+  input,
+  select,
+  option {
+    color: black;
+  }
+
+  .sender-form {
+    @include fastDisplay(center, space-evenly, column, nowrap);
+    background-color: white;
+    height: 70%;
+    width: 50%;
+
+    label {
+      @include fastDisplay(center, space-evenly, row, nowrap);
+    }
+  }
+}
